@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">658917840193-75umfiequr3u72spkun27eqr8ham6dnp.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://hackathon-8f78d.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">658917840193</string>
+    <string name="google_api_key" translatable="false">AIzaSyAeg8XTCDt2jSNDJcFMtY59dtGx3s1L2wM</string>
+    <string name="google_app_id" translatable="false">1:658917840193:android:3071f53991bbaa2f55bdc0</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAeg8XTCDt2jSNDJcFMtY59dtGx3s1L2wM</string>
+    <string name="google_storage_bucket" translatable="false">hackathon-8f78d.appspot.com</string>
+    <string name="project_id" translatable="false">hackathon-8f78d</string>
+</resources>
