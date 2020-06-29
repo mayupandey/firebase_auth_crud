@@ -13,6 +13,7 @@ class Post {
     name = map["name"];
     description=map["description"];
     imageurl=map["imageurl"];
+
     id =map["id"];
   }
 
