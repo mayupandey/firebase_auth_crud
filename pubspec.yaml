@@ -25,6 +25,7 @@ dependencies:
   shared_preferences: ^0.5.6+1
   image_picker: ^0.6.1+4
   firebase_storage: ^3.0.5
+  auto_size_text: ^2.1.0
   #fluttery_seekbar: ^0.0.1
   firebase_auth: ^0.11.1+5
   flutter:

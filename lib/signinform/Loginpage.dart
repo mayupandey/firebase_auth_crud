@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebasecrud/siginup/siginup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +17,7 @@ class MyApp1 extends StatefulWidget {
 class _MyAppState extends State<MyApp1> {
   String _email;
   String   _password;
+  String _error;
   final formkey=new GlobalKey<FormState>();
   checkFields(){
     final form=formkey.currentState;
@@ -39,6 +41,9 @@ class _MyAppState extends State<MyApp1> {
         Navigator.push(context, MaterialPageRoute(builder: (context)=>home()));
       }).catchError((e){
         print(e);
+        setState(() {
+          _error = e.message;
+        });
       });
     }
   }
@@ -87,9 +92,11 @@ class _MyAppState extends State<MyApp1> {
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
+              showAlert(),
               Padding(
                 padding: EdgeInsets.only(top: 20.0),
                 child: Container(
@@ -216,6 +223,40 @@ class _MyAppState extends State<MyApp1> {
           )
         ],
       ),
+    );
+  }
+
+  Widget showAlert() {
+    if (_error != null) {
+      return Container(
+        color: Colors.blue,
+        width: double.infinity,
+        padding: EdgeInsets.all(8.0),
+        child: Row(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: Icon(Icons.error_outline),
+            ),
+            Expanded(
+              child: AutoSizeText(_error, maxLines: 3,style: TextStyle(color: Colors.black),),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () {
+                    setState(() {
+                      _error = null;
+                    });
+                  }),
+            ),
+          ],
+        ),
+      );
+    }
+    return SizedBox(
+      height: 0,
     );
   }
 }

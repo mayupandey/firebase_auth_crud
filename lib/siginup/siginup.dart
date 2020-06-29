@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebasecrud/siginup/regform.dart';
 import 'package:firebasecrud/signinform/CustomIcons.dart';
 import 'package:firebasecrud/signinform/SocialIcons.dart';
@@ -14,6 +15,7 @@ class Siginup extends StatefulWidget {
 class _MyAppState extends State<Siginup> {
   String _email;
   String   _password;
+  String _error;
   //google sign
   /// GoogleSignIn googleauth = new GoogleSignIn();
   final formkey=new GlobalKey<FormState>();
@@ -38,6 +40,9 @@ class _MyAppState extends State<Siginup> {
         Navigator.of(context).pushNamed('/userpage');
       }).catchError((e){
         print(e);
+        setState(() {
+          _error = e.message;
+        });
       });
     }
   }
@@ -64,6 +69,7 @@ class _MyAppState extends State<Siginup> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
+              showAlert(),
               Padding(
                 padding: EdgeInsets.only(top: 20.0),
                 child: Container(
@@ -174,6 +180,39 @@ class _MyAppState extends State<Siginup> {
           )
         ],
       ),
+    );
+  }
+  Widget showAlert() {
+    if (_error != null) {
+      return Container(
+        color: Colors.blue,
+        width: double.infinity,
+        padding: EdgeInsets.all(8.0),
+        child: Row(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: Icon(Icons.error_outline),
+            ),
+            Expanded(
+              child: AutoSizeText(_error, maxLines: 3,style: TextStyle(color: Colors.black),),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () {
+                    setState(() {
+                      _error = null;
+                    });
+                  }),
+            ),
+          ],
+        ),
+      );
+    }
+    return SizedBox(
+      height: 0,
     );
   }
 }
