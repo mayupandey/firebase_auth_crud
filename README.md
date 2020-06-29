@@ -31,12 +31,10 @@ If you found this project useful, then please consider giving it a :star: on Git
 if you like my work support me 
 ## Project Created & Maintained By
 
-### divyam joshi
+### divyam joshi & Mayank Pandey
 # Donate
 
-> If you found this project helpful or you learned something from the source code and want to appreciate
->
-> - [PayPal](https://paypal.me/divyamjoshi)
+
 <br>
 
 ## License
